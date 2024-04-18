@@ -10,7 +10,6 @@ public class sort {
     }
 
     public static ArrayList<Integer> sortNumbers (ArrayList<Integer> unsortedNumbers) {
-
         for(int i = 0; i<unsortedNumbers.size(); i++) {
 
             for(int j = i+1; j<unsortedNumbers.size(); j++) {
