@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.crud.tasks.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.crud.tasks.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/tasks.iml" filepath="$PROJECT_DIR$/.idea/tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tasks.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tasks.main.iml" />
     </modules>
   </component>
 </project>
