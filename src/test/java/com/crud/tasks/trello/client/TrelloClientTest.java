@@ -68,7 +68,7 @@ class TrelloClientTest {
                 "test_id",
                     new TrelloBadgeDto()
         );
-        URI uri = new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id");
+        URI uri = new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id&badges=TrelloBadgeDto(votes%3D0,%20attachment%3Dnull)");
 
         CreatedTrelloCard createdTrelloCard = new CreatedTrelloCard(
                 "1",

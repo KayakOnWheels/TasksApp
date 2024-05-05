@@ -11,7 +11,10 @@
         <module name="tasks.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="17">
+      <module name="com.crud.tasks" target="17" />
+      <module name="com.crud.tasks.main" target="17" />
+      <module name="com.crud.tasks.test" target="17" />
       <module name="tasks.tasks.main" target="17" />
       <module name="tasks.tasks.test" target="17" />
     </bytecodeTargetLevel>
