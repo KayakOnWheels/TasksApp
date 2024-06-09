@@ -103,7 +103,7 @@ class TaskControllerTest {
         TaskDto updatedTaskDto = new TaskDto(1L, "updatedTask1", "updatedCont1");
 
         when(taskMapper.mapToTask(taskDto)).thenReturn(task);
-        when(dbService.saveTask(task)).thenReturn(updatedTask);
+        when(dbService.saveTask(task)).thenReturn(task);
         when(taskMapper.mapToTaskDto(updatedTask)).thenReturn(updatedTaskDto);
 
         Gson gson = new Gson();
