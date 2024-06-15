@@ -2,12 +2,13 @@ package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
-import com.crud.tasks.exceptions.TaskNotFoundException;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,6 +24,7 @@ import static org.mockito.Mockito.*;
 
 
 @SpringJUnitWebConfig
+@ExtendWith(MockitoExtension.class)
 @WebMvcTest(TaskController.class)
 class TaskControllerTest {
 
@@ -103,8 +105,9 @@ class TaskControllerTest {
         TaskDto updatedTaskDto = new TaskDto(1L, "updatedTask1", "updatedCont1");
 
         when(taskMapper.mapToTask(taskDto)).thenReturn(task);
+        when(taskMapper.mapToTaskDto(any())).thenReturn(updatedTaskDto);
         when(dbService.saveTask(task)).thenReturn(task);
-        when(taskMapper.mapToTaskDto(updatedTask)).thenReturn(updatedTaskDto);
+
 
         Gson gson = new Gson();
         String jsonContent = gson.toJson(updatedTaskDto);
