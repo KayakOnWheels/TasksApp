@@ -99,14 +99,13 @@ class TaskControllerTest {
     @Test
     void shouldUpdateTask() throws Exception {
         // Given
-        TaskDto taskDto = new TaskDto(1L, "task1", "cont1");
         Task task = new Task(1L, "task1", "cont1");
         Task updatedTask = new Task(1L, "updatedTask1", "updatedCont1");
         TaskDto updatedTaskDto = new TaskDto(1L, "updatedTask1", "updatedCont1");
 
-        when(taskMapper.mapToTask(taskDto)).thenReturn(task);
-        when(taskMapper.mapToTaskDto(any())).thenReturn(updatedTaskDto);
-        when(dbService.saveTask(task)).thenReturn(task);
+        when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(task);
+        when(taskMapper.mapToTaskDto(updatedTask)).thenReturn(updatedTaskDto);
+        when(dbService.saveTask(task)).thenReturn(updatedTask);
 
 
         Gson gson = new Gson();
