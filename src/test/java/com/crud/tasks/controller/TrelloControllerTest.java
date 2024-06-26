@@ -1,6 +1,7 @@
 package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.*;
+import com.crud.tasks.service.DbService;
 import com.crud.tasks.trello.facade.TrelloFacade;
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;
@@ -25,6 +26,9 @@ class TrelloControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private DbService dbService;
 
     @MockBean
     private TrelloFacade trelloFacade;
@@ -89,6 +93,10 @@ class TrelloControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is("232")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("Test")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.shortUrl", Matchers.is("http://test.com")));
+
+
+        Long taskIdToDelete = Long.valueOf(createdTrelloCardDto.getId());
+        dbService.deleteTask(taskIdToDelete);
     }
 
 
